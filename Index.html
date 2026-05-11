@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUN PLAY | IPTV PREMIUM</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+        body {background-color:#0f0f0f;padding:15px;color:#fff;}
+        header {background:linear-gradient(135deg,#6a1b9a,#4a148c);color:white;padding:20px;text-align:center;border-radius:12px;margin-bottom:25px;box-shadow:0 4px 12px rgba(106,27,154,.4);}
+        header h1 {font-size:22px;margin-bottom:6px;}
+        header p {font-size:14px;opacity:.9;}
+        .opcoes {display:flex;flex-direction:column;gap:18px;max-width:450px;margin:0 auto;}
+        .opcao {background:#1e1e1e;border-radius:12px;padding:22px 18px;text-align:center;border:2px solid #6a1b9a;transition:.3s;cursor:pointer;}
+        .opcao:hover {transform:translateY(-3px);box-shadow:0 6px 15px rgba(106,27,154,.3);}
+        .opcao h3 {font-size:18px;color:#ce93d8;margin-bottom:8px;}
+        .opcao p {font-size:14px;color:#ccc;line-height:1.4;}
+        .icone {font-size:32px;margin-bottom:10px;}
+        .tela-pix {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:20px;}
+        .conteudo-pix {background:#1e1e1e;padding:25px;border-radius:12px;width:100%;max-width:380px;border:2px solid #6a1b9a;text-align:center;}
+        .conteudo-pix h3 {color:#00ff88;margin-bottom:15px;}
+        .valor {font-size:24px;font-weight:bold;color:#00ff88;margin:10px 0;}
+        .codigo-pix {background:#2d2d2d;padding:12px;border-radius:8px;font-size:12px;color:#ffd700;word-break:break-all;margin:12px 0;}
+        .campo-id {width:100%;padding:12px;margin:12px 0;border-radius:8px;border:none;background:#2d2d2d;color:#fff;text-align:center;font-size:15px;}
+        .btn {width:100%;padding:12px;border:none;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;margin:6px 0;}
+        .btn-copiar {background:#2196F3;color:white;}
+        .btn-liberar {background:#ff9800;color:#000;}
+        .btn-fechar {background:#f44336;color:white;}
+        .sucesso {display:none;color:#00ff88;margin-top:15px;padding:12px;border:1px solid #00ff88;border-radius:8px;}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📺 FUN PLAY IPTV</h1>
+        <p>Canais • Filmes • Séries • Esportes | HD / 4K</p>
+    </header>
+
+    <div class="opcoes">
+        <a href="https://play.google.com/store/search?q=fun+play&c=apps&hl=pt_BR" style="text-decoration:none;">
+            <div class="opcao">
+                <div class="icone">📲</div>
+                <h3>1. Instalar o Fun Play</h3>
+                <p>Baixe o aplicativo oficial direto da Play Store</p>
+            </div>
+        </a>
+
+        <div class="opcao" onclick="abrirPix()">
+            <div class="icone">🔓</div>
+            <h3>2. Liberar Plano Automaticamente</h3>
+            <p>Pague via Pix → Liberação na hora | R$ 35,00 / 30 Dias</p>
+        </div>
+
+        <a href="https://wa.me/5513996555019" style="text-decoration:none;">
+            <div class="opcao">
+                <div class="icone">💬</div>
+                <h3>3. Entrar em Contato com Staff</h3>
+                <p>Dúvidas, suporte, problemas com acesso | Atendimento rápido</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="tela-pix" id="telaPix">
+        <div class="conteudo-pix">
+            <h3>💳 PAGAMENTO PARA LIBERAR ACESSO</h3>
+            <p>Plano: Fun Play Mensal (30 Dias)</p>
+            <div class="valor">R$ 35,00</div>
+
+            <p>Chave Pix: <strong>(13) 99748-9627</strong></p>
+            <div class="codigo-pix" id="codigoPix">
+00020126360014BR.GOV.BCB.PIX0114+55139974896275204000053039865802BR5910FUN PLAY6007PERUIBE62070503***6304ABCD
+            </div>
+
+            <button class="btn btn-copiar" onclick="copiarPix()">📋 COPIAR CÓDIGO PIX</button>
+
+            <input type="text" id="idCliente" class="campo-id" placeholder="Digite seu Usuário / ID do Fun Play">
+
+            <button class="btn btn-liberar" onclick="liberarAcesso()">🚀 CONFIRMAR E LIBERAR</button>
+
+            <div class="sucesso" id="mensagemSucesso">
+                ✅ PAGAMENTO CONFIRMADO<br>
+                ✅ ACESSO LIBERADO NO FUN PLAY<br>
+                📌 Válido por 30 Dias<br>
+                ✅ Já pode usar normalmente!
+            </div>
+
+            <button class="btn btn-fechar" onclick="fecharPix()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        function abrirPix() {document.getElementById('telaPix').style.display='flex';document.getElementById('mensagemSucesso').style.display='none';}
+        function fecharPix() {document.getElementById('telaPix').style.display='none';}
+        function copiarPix() {navigator.clipboard.writeText(document.getElementById('codigoPix').innerText);alert('✅ Código Pix copiado!');}
+        function liberarAcesso() {const id=document.getElementById('idCliente').value;if(!id)return alert('❌ Digite seu ID primeiro!');document.getElementById('mensagemSucesso').style.display='block';}
+    </script>
+
+</body>
+  </html>
+  
